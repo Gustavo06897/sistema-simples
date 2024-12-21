@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema de Pedidos</title>
   <style>
-    body {
+        body {
       font-family: Arial, sans-serif;
       margin: 20px;
     }
-
+    
     .container {
       max-width: 600px;
       margin: 0 auto;
@@ -20,9 +20,34 @@
     }
 
     .product {
-      margin-bottom: 10px;
-      width: 300%;
+      display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px; /* Espaçamento entre produtos */
+  border: 1px solid #ddd; /* Adiciona uma borda ao produto */
+  padding: 10px;
+  border-radius: 8px; /* Arredondamento dos cantos */
+  max-width: 200px; /* Limita a largura */
     }
+    .product-image {
+  width: 100px; 
+  height: auto;
+  margin-bottom: 10px; /* Espaço abaixo da imagem */
+}
+.product-name {
+  font-weight: bold;
+  display: block;
+}
+
+.product-price {
+  color: #555;
+  display: block;
+}
+
+.product-quantity {
+  width: 60px;
+  text-align: center;
+}
 
     button {
       padding: 10px 20px;
@@ -74,32 +99,176 @@
       margin-top: 10px;
       font-weight: bold;
     }
+
+    /* Consultas de mídia para ajustar o layout em dispositivos móveis */
+@media (max-width: 768px) {
+  /* Para telas menores que 768px (tablets em modo retrato e dispositivos móveis) */
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .product {
+    max-width: 100%; /* Produtos ocupando toda a largura da tela */
+    margin: 10px 0; /* Menos espaçamento entre os produtos */
+  }
+
+  .product-image {
+    width: 80px; /* Ajustar a largura das imagens */
+  }
+
+  .product-info {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Para telas menores que 480px (smartphones em modo retrato) */
+  .container {
+    padding: 5px;
+  }
+
+  .product {
+    margin: 10px 0;
+  }
+
+  .product-name {
+    font-size: 14px; /* Ajusta o tamanho da fonte para dispositivos menores */
+  }
+
+  .product-price {
+    font-size: 12px;
+  }
+
+  .product-quantity {
+    width: 50px;
+  }
+}
   </style>
 </head>
 <body>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <div class="container">
     <h1>Sistema de Pedidos</h1>
     
     <!-- Lista de Produtos -->
     <div id="product-list">
-      <h2>Produtos</h2>
-      <div class="product" data-id="1" data-name="Frango Assado inteiro" data-price="42">
-        <span>Frango Assado inteiro- R$ 42.00</span>
-        <input type="number" min="0" placeholder="Quantidade">
-      </div>
-      <div class="product" data-id="2" data-name="Frango Assado inteiro" data-price="22">
-        <span>Frango Assado inteiro - R$ 22.00</span>
-        <input type="number" min="0" placeholder="Quantidade">
-      </div>
-      <div class="product" data-id="3" data-name="Açaí 500ml" data-price="20">
-        <span>Açaí 500ml- R$ 20.00</span>
-        <input type="number" min="0" placeholder="Quantidade">
+      <h2>Na Brasa</h2>
+
+<div class="product" data-id="1" data-name="Frango Assado inteiro" data-price="42">
+  <img src="/Users/gustavocae/SISTEMA-SIMPLES/images/2926417-frango-assado-temperado-com-ervas-gratis-foto.jpg" 
+       alt="Frango Assado Inteiro" 
+       class="product-image">
+  <div class="product-info">
+    <span class="product-name">Frango Assado Inteiro</span>
+    <span class="product-price">R$ 42.00</span>
+  </div>
+  <input type="number" min="0" placeholder="Quantidade" class="product-quantity">
+</div>
+<div class="product" data-id="2" data-name="Frango Assado banda" data-price="21">
+  <img src="/Users/gustavocae/SISTEMA-SIMPLES/images/Frango-sem-fundo.png.webp" 
+       alt="Frango Assado banda" 
+       class="product-image">
+  <div class="product-info">
+    <span class="product-name">Frango Assado banda</span>
+    <span class="product-price">R$ 21.00</span>
+  </div>
+  <input type="number" min="0" placeholder="Quantidade" class="product-quantity">
+</div>
+
+<div class="product" data-id="3" data-name="Linguica" data-price="3">
+  <img src="/Users/gustavocae/SISTEMA-SIMPLES/images/Linguica-Toscana-com-Molho-de-Mostardas-e-Mel.jpg.webp" 
+       alt="Linguica" 
+       class="product-image">
+  <div class="product-info">
+    <span class="product-name">Linguica</span>
+    <span class="product-price">R$ 3.00</span>
+  </div>
+  <input type="number" min="0" placeholder="Quantidade" class="product-quantity">
+</div>
+
+<div class="product" data-id="4" data-name="Peito de frango" data-price="6">
+  <img src="/Users/gustavocae/SISTEMA-SIMPLES/images/peito-de-frango-grelhado.png" 
+       alt="Peito de frango" 
+       class="product-image">
+  <div class="product-info">
+    <span class="product-name">Peito de frango</span>
+    <span class="product-price">R$ 6.00</span>
+  </div>
+  <input type="number" min="0" placeholder="Quantidade" class="product-quantity">
+</div>
+      
+
+      <h2>Porções</h2>
+      <div class="product" data-id="5" data-name="Macaxeira cremosa" data-price="10">
+        <img src="/Users/gustavocae/SISTEMA-SIMPLES/images/macaxeira-cozida.jpg" 
+             alt="Macaxeira cremosa" 
+             class="product-image">
+        <div class="product-info">
+          <span class="product-name">Macaxeira cremosa</span>
+          <span class="product-price">R$ 10.00</span>
+        </div>
+        <input type="number" min="0" placeholder="Quantidade" class="product-quantity">
       </div>
 
-      <div class="product" data-id="3" data-name="Açaí 330ml" data-price="16">
-        <span>Açaí 330ml- R$ 16.00</span>
-        <input type="number" min="0" placeholder="Quantidade">
+      <div class="product" data-id="6" data-name="Baiao" data-price="10">
+        <img src="/Users/gustavocae/SISTEMA-SIMPLES/images/baiao-de-dois-pressao.jpg" 
+             alt="Baiao" 
+             class="product-image">
+        <div class="product-info">
+          <span class="product-name">Baiao</span>
+          <span class="product-price">R$ 10.00</span>
+        </div>
+        <input type="number" min="0" placeholder="Quantidade" class="product-quantity">
       </div>
+      
+      <h2>Bebidas</h2>
+
+      <div class="product" data-id="7" data-name="Garrafinha guaraná" data-price="10">
+        <img src="/Users/gustavocae/SISTEMA-SIMPLES/images/197264-800-450.webp" 
+             alt="Garrafinha guaraná" 
+             class="product-image">
+        <div class="product-info">
+          <span class="product-name">Garrafinha guaraná</span>
+          <span class="product-price">R$ 10.00</span>
+        </div>
+        <input type="number" min="0" placeholder="Quantidade" class="product-quantity">
+      </div>
+
+      <div class="product" data-id="8" data-name="Garrafinha pepsi" data-price="10">
+        <img src="/Users/gustavocae/SISTEMA-SIMPLES/images/Refrigerante-PEPSI-Cola-Garrafinha-200ml.jpg.webp" 
+             alt="Garrafinha pepsi" 
+             class="product-image">
+        <div class="product-info">
+          <span class="product-name">Garrafinha pepsi</span>
+          <span class="product-price">R$ 10.00</span>
+        </div>
+        <input type="number" min="0" placeholder="Quantidade" class="product-quantity">
+      </div>
+
+      <div class="product" data-id="9" data-name="Coca Cola 2.5L" data-price="10">
+        <img src="/Users/gustavocae/SISTEMA-SIMPLES/images/images-6.jpeg" 
+             alt="Coca Cola 2.5L" 
+             class="product-image">
+        <div class="product-info">
+          <span class="product-name">Coca Cola 2.5L</span>
+          <span class="product-price">R$ 10.00</span>
+        </div>
+        <input type="number" min="0" placeholder="Quantidade" class="product-quantity">
+      </div>
+
+      <div class="product" data-id="10" data-name="Pepsi 1L" data-price="10">
+        <img src="/Users/gustavocae/SISTEMA-SIMPLES/images/images-7.jpeg" 
+             alt="Pepsi 1L" 
+             class="product-image">
+        <div class="product-info">
+          <span class="product-name">Pepsi 1L</span>
+          <span class="product-price">R$ 10.00</span>
+        </div>
+        <input type="number" min="0" placeholder="Quantidade" class="product-quantity">
+      </div>
+
 
       <button id="next-step">Finalizar Seleção</button>
     </div>
